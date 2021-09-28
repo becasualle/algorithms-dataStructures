@@ -8,7 +8,7 @@ const pivot = (arr, startIdx = 0, endIdx = arr.length - 1) => {
     let pivot = arr[startIdx];
     let pivotIdx = startIdx;
 
-    for (let i = startIdx + 1; i < arr.length; i++) {
+    for (let i = startIdx + 1; i <= endIdx; i++) {
         // console.log({ curr: arr[i] })
         if (pivot > arr[i]) {
             // console.log(arr);
