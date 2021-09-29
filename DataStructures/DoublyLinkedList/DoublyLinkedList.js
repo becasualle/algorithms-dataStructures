@@ -92,6 +92,14 @@ class DoublyLinkedList {
         }
         return current;
     }
+    set(idx, val) {
+        let current = this.get(idx);
+        if (current) {
+            current.val = val;
+            return true;
+        }
+        return false;
+    }
 }
 
 const list = new DoublyLinkedList();
