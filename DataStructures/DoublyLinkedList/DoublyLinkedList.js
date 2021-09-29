@@ -100,6 +100,21 @@ class DoublyLinkedList {
         }
         return false;
     }
+    insert(idx, val) {
+        if (idx < 0 || idx > this.length) return false;
+        if (idx === 0) return !!this.unshift(val); //!! we don't won't to return Node, instead we need boolean
+        if (idx === this.length) return !!this.push(val);
+
+        const current = this.get(idx);
+        const previous = current.prev;
+        const newNode = new Node(val);
+
+        current.prev = newNode, newNode.next = current;
+        newNode.prev = previous, previous.next = newNode;
+
+        this.length++;
+        return true;
+    }
 }
 
 const list = new DoublyLinkedList();
