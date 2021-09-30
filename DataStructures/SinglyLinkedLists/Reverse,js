@@ -39,7 +39,7 @@ class SinglyLinkedList {
         // 5. Create variable called next 
         let next;
         // 6. loop through the list
-        for (let i = 0; i < list.length; i++) {
+        for (let i = 0; i < this.length; i++) {
             //6.1 Set next to be the next property on whatever node is
             next = curr.next;
             //6.2 Set the next property on the node to be whatever prev is

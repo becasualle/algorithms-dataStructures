@@ -130,6 +130,32 @@ class DoublyLinkedList {
         this.length--;
         return removed;
     }
+    reverse() {
+        // 1. Create a variable called node ant initialize it to the head property
+        let curr = this.head;
+        // 2. Set head property to become tail
+        this.head = this.tail;
+        // 3. Set tail property to become node (which stores head property)
+        this.tail = curr;
+        // 4. Create variable called prev and set it to null
+        let prev = null;
+        // 5. Create variable called next 
+        let next;
+        // 6. loop through the list
+        for (let i = 0; i < this.length; i++) {
+            //6.1 Set next to be the next property on whatever node is
+            next = curr.next;
+            //6.2 Set the next property on the node to be whatever prev is
+            curr.next = prev;
+            curr.prev = next;
+            //6.3 Set prev to be the value of the node variable
+            prev = curr;
+            //6.4 Set the node variable to be the value of the next variable
+            curr = next;
+        }
+        // 7. Return list
+        return this;
+    }
 }
 
 const list = new DoublyLinkedList();
