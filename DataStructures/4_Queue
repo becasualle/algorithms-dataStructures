@@ -1,0 +1,49 @@
+class Node {
+    constructor(val) {
+        this.val = val;
+        this.next = null;
+    }
+}
+
+class Queue {
+    constructor() {
+        this.first = null;
+        this.last = null;
+        this.size = 0;
+    }
+    //     add to the end and remove from the start. FIFO - first in first out.
+    enqueue(val) {
+        const newNode = new Node(val);
+
+        if (!this.first) {
+            this.first = newNode;
+            this.last = newNode;
+        } else {
+            this.last.next = newNode;
+            this.last = newNode;
+        }
+
+        return ++this.size;
+
+    }
+    dequeue() {
+        if (!this.first) return null;
+
+        const temp = this.first;
+
+        if (this.first === this.last) {
+            this.last = null;
+            //this.first we will set to null in next line
+        }
+
+        this.first = this.first.next;
+        this.size--;
+
+        return temp.val;
+    }
+}
+
+const queue = new Queue();
+queue.enqueue('mark');
+queue.enqueue('sveta');
+queue.enqueue('alex');
